@@ -1,0 +1,5 @@
+{
+  "website-port": 80,
+  "rest-api-port": 8080,
+  "socket-api-port": 8081
+}

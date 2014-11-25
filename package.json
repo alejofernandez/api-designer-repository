@@ -1,0 +1,39 @@
+{
+  "name": "api-designer-repository",
+  "description": "An open-source local/remote repository library for the RAML API-Designer tool written in Node.js",
+  "author": {
+    "name": "Alejo Fernandez",
+    "email": "alejo.fernandez@gmail.com",
+    "web": "http://djseika.com"
+  },
+  "version": "0.0.1",
+  "keywords": [
+    "raml",
+    "local",
+    "repository",
+    "files",
+    "remote",
+    "socket.io",
+    "websockets"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlejoFernandez/api-designer-repository"
+  },
+  "engines": {
+    "node": ">=0.6.0"
+  },
+  "dependencies": {
+    "chai": "^1.10.0",
+    "delivery": "0.0.3",
+    "express": "^4.10.4",
+    "socket.io": "^1.2.1"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "server"
+}
