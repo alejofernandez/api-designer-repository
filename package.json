@@ -25,8 +25,8 @@
   },
   "dependencies": {
     "chai": "^1.10.0",
-    "delivery": "0.0.3",
     "express": "^4.10.4",
+    "q": "^1.1.2",
     "socket.io": "^1.2.1"
   },
   "licenses": [

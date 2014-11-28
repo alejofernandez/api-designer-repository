@@ -1,5 +1,4 @@
 {
-  "websitePort": 8080,
-  "restApiPort": 8080,
-  "socketApiPort": 8081
+  "port": 8090,
+  "homeDirectory": ""
 }
