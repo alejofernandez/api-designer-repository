@@ -4,7 +4,12 @@ angular.module('ramlEditorApp')
   .factory('remoteStorage', function ($rootScope, $q, SERVER) {
     var service = {},
         socket = io(SERVER || 'http://localhost:8080'),
-        connected = false;
+        connected = false,
+        operations = {};
+
+    function generateId () {
+      return Math.floor((Math.random() * 1000000) + 1).toString();
+    };
 
     socket.on('connect', function () {
       $rootScope.$apply(function () {
@@ -23,18 +28,36 @@ angular.module('ramlEditorApp')
     };
 
     service.invoke = function (operation, payload, callback, errorCallback) {
-      var deferred = $q.defer();
+      var deferred = $q.defer(),
+          id = generateId();
 
-      callback = callback || function (data) {
-        this.resolve(data);
-      };
+      if (!operations[operation]) {
 
-      errorCallback = errorCallback || function (error) {
-        this.reject(error);
-      };
+        operations[operation] = { configured: true };
 
-      socket.on(operation + '.response', callback.bind(deferred));
-      socket.on(operation + '.error', errorCallback.bind(deferred));
+        callback = callback || function (response) {
+            this.resolve(response);
+          };
+
+        errorCallback = errorCallback || function (error) {
+            this.reject(error);
+          };
+
+        socket.on(operation + '.response', function (response) {
+            var def = operations[response.__operationId].deferred;
+            delete operations[response.__operationId];
+            callback.bind(def)(response.__response || response);
+          });
+
+        socket.on(operation + '.error', function (error) {
+            var def = operations[error.operationId].deferred;
+            delete operations[error.operationId];
+            callback.bind(def)(error.__error || error);
+          });
+      }
+
+      operations[id] = { deferred: deferred };
+      payload.__operationId = id;
       socket.emit(operation, payload);
 
       return deferred.promise;
