@@ -12,7 +12,7 @@ An open-source local/remote repository library for the RAML API-Designer tool wr
 
 cd to your working directory where you want to create/edit your RAML files and run:
 
-   api-designer
+    api-designer
 
 the designer page will open on your default browser.
 
@@ -24,8 +24,9 @@ the designer page will open on your default browser.
 
 ## References
 
-RAML
-api-designer
+[RAML](http://raml.org/)
+[api-designer](https://github.com/mulesoft/api-designer)
+
 
 
 
