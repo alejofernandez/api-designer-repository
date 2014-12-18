@@ -1,8 +1,11 @@
 api-designer-repository
 =======================
 
-An open-source local/remote repository library for the RAML API-Designer tool written in Node.js
+An open-source local/remote repository library for the [RAML](http://raml.org/) [API-Designer](https://github.com/mulesoft/api-designer) tool written in Node.js
 
+## Motivation
+
+Proabably you found RAML standard very nice and useful, but the api-designer project provided by mulesoft does not allow to save files in the local filesystem and you want to version them on github. This project allows you to install the api-designer into your system as npm package and save the RAML files in your hard drive.
 
 ## Install
 
