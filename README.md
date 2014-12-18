@@ -18,13 +18,14 @@ the designer page will open on your default browser.
 
 ## To do's
 
-[] Finish the directory support
-[] Publish npm package
+* Finish the directory support
+* Publish npm package
 
 
 ## References
 
 [RAML](http://raml.org/)
+
 [api-designer](https://github.com/mulesoft/api-designer)
 
 
