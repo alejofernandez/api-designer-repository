@@ -7,10 +7,10 @@ var fs = require('fs');
 var path = require('path');
 var requestHelper = {};
 var FILE_EXTENSION = '.raml';
-var homeDirectory = config.homeDirectory || __dirname;
+var homeDirectory = config.homeDirectory || ".";
 var requestHelper = require('./app/requestHelper')
 
-app.use('/designer/', express.static('public'));
+app.use('/designer/', express.static(__dirname + '/public'));
 
 io.set('transports', ['websocket', 'flashsocket', 'htmlfile', 'xhr-polling', 'jsonp-polling', 'polling']);
 io.set('origins', '*:*');
