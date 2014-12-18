@@ -1244,3 +1244,5 @@ div[role=raml-editor] .menubar .menu-item-mocking-service .field input[type=chec
   left: -webkit-calc(100% - 2em - 3px);
   left: calc(100% - 2em - 3px);
 }
+div[role=raml-editor] .menubar .menu-item-mocking-service { display: none; }
+
