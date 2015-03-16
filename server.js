@@ -6,7 +6,6 @@ var config = require('./config');
 var fs = require('fs');
 var path = require('path');
 var requestHelper = {};
-var FILE_EXTENSION = '.raml';
 var homeDirectory = config.homeDirectory || ".";
 var requestHelper = require('./app/requestHelper')
 
@@ -33,13 +32,11 @@ io.sockets.on('connection', function(socket) {
         deferred.reject(err);
       } else {
         files.forEach(function (file) {
-          if (file && file.length > FILE_EXTENSION.length && file.lastIndexOf(FILE_EXTENSION) === (file.length - FILE_EXTENSION.length)) {
-            result.children.push({
-              path: path.resolve(request.path, file),
-              name: file,
-              type: 'file'
-            });
-          }
+          result.children.push({
+            path: path.resolve(request.path, file),
+            name: file,
+            type: 'file'
+          });
         });
         deferred.resolve(result);
       }
